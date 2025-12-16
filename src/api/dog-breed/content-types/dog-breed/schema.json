@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dog_breeds",
+  "info": {
+    "singularName": "dog-breed",
+    "pluralName": "dog-breeds",
+    "displayName": " dog-breed"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "dog_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dog-category.dog-category",
+      "inversedBy": "dog_breeds"
+    }
+  }
+}
