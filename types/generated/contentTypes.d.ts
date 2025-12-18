@@ -531,6 +531,36 @@ export interface ApiDogCategoryDogCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPodcastInfoPodcastInfo extends Struct.CollectionTypeSchema {
+  collectionName: 'podcast_infos';
+  info: {
+    displayName: 'podcast-info';
+    pluralName: 'podcast-infos';
+    singularName: 'podcast-info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::podcast-info.podcast-info'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1044,6 +1074,7 @@ declare module '@strapi/strapi' {
       'api::counter.counter': ApiCounterCounter;
       'api::dog-breed.dog-breed': ApiDogBreedDogBreed;
       'api::dog-category.dog-category': ApiDogCategoryDogCategory;
+      'api::podcast-info.podcast-info': ApiPodcastInfoPodcastInfo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
