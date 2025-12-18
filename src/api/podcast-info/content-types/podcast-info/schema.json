@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "podcast_infos",
+  "info": {
+    "singularName": "podcast-info",
+    "pluralName": "podcast-infos",
+    "displayName": "podcast-info"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    }
+  }
+}
