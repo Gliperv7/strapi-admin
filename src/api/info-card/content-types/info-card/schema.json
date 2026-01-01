@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "info_cards",
+  "info": {
+    "singularName": "info-card",
+    "pluralName": "info-cards",
+    "displayName": "InfoCard"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

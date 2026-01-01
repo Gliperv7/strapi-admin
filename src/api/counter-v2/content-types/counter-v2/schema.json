@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "counter_v2s",
+  "info": {
+    "singularName": "counter-v2",
+    "pluralName": "counter-v2s",
+    "displayName": "CounterV2"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "integer"
+    }
+  }
+}
