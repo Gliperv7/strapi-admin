@@ -689,6 +689,40 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiUsersCoverUsersCover extends Struct.CollectionTypeSchema {
+  collectionName: 'users_covers';
+  info: {
+    displayName: 'users-cover';
+    pluralName: 'users-covers';
+    singularName: 'users-cover';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::users-cover.users-cover'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    user1: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    user2: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    user3: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    user4: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1208,6 +1242,7 @@ declare module '@strapi/strapi' {
       'api::info-card.info-card': ApiInfoCardInfoCard;
       'api::podcast-info.podcast-info': ApiPodcastInfoPodcastInfo;
       'api::post.post': ApiPostPost;
+      'api::users-cover.users-cover': ApiUsersCoverUsersCover;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
