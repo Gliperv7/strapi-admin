@@ -716,10 +716,7 @@ export interface ApiUsersCoverUsersCover extends Struct.CollectionTypeSchema {
     user1: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     user2: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     user3: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    user4: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    user4: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
