@@ -461,6 +461,38 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCommentCounterCommentCounter
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'comment_counters';
+  info: {
+    displayName: 'comment-counter';
+    pluralName: 'comment-counters';
+    singularName: 'comment-counter';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::comment-counter.comment-counter'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    text: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCounterV2CounterV2 extends Struct.CollectionTypeSchema {
   collectionName: 'counter_v2s';
   info: {
@@ -1232,6 +1264,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::category.category': ApiCategoryCategory;
+      'api::comment-counter.comment-counter': ApiCommentCounterCommentCounter;
       'api::counter-v2.counter-v2': ApiCounterV2CounterV2;
       'api::counter.counter': ApiCounterCounter;
       'api::dog-breed.dog-breed': ApiDogBreedDogBreed;
